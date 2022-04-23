@@ -1,5 +1,5 @@
 # 요구사항 정리
-- [ ] 자동차 이름은 사용자 입력을 쉼표(,)를 구분하여 얻을 수 있다.
+- [x] 자동차 이름은 사용자 입력을 쉼표(,)를 구분하여 얻을 수 있다.
 - [ ] 경주 시도 횟수는 사용자가 입력한다.
 - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
   - [ ] Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같은 명확한 유형을 처리한다.
@@ -18,5 +18,6 @@
   - [ ] 우승자가 한 명 이상일 경우, 쉼표(,)로 이름을 구분해 출력한다.
 
 // Race
+// UserInput
 // List<Car>
 // Car - CarName

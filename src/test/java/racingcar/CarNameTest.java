@@ -13,16 +13,16 @@ public class CarNameTest {
     private static final String CARNAME_EMPTY_ERROR_MESSAGE = "[ERROR] 자동차 이름은 필수값입니다. ";
     private static final String CARNAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
     private static final String CARNAME_INVALID_ERROR_MESSAGE = "[ERROR] 자동차 이름은 문자로만 이루어져야 한다.";
+    private static final String ERROR_MESSAGE = "[ERROR]";
 
     @Test
     @DisplayName("자동차 이름의 길이가 5자를 넘어서면 에러를 던진다.")
     void throw_error_name_with_over_5() {
         String givenText = "abcdef";
-        CarName carName = new CarName();
         assertThatThrownBy(
-                () -> carName.validate(givenText)
+                () -> new CarName(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]")
+        .hasMessageContaining(ERROR_MESSAGE)
         .hasMessage(CARNAME_LENGTH_ERROR_MESSAGE);
     }
 
@@ -30,11 +30,10 @@ public class CarNameTest {
     @NullAndEmptySource
     @DisplayName("자동차 이름의 길이가 1자보다 작으면 에러를 던진다.")
     void throw_error_name_with_less_1(String givenText) {
-        CarName carName = new CarName();
         assertThatThrownBy(
-                () -> carName.validate(givenText)
+                () ->new CarName(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("[ERROR]")
+        .hasMessageContaining(ERROR_MESSAGE)
         .hasMessage(CARNAME_EMPTY_ERROR_MESSAGE);
     }
 
@@ -42,11 +41,10 @@ public class CarNameTest {
     @ValueSource(strings = {"123", "12a"})
     @DisplayName("자동차 이름이 문자가 아닐 경우 에러를 던진다.")
     void throw_error_name_with_not_alpha(String givenText) {
-        CarName carName = new CarName();
         assertThatThrownBy(
-                () -> carName.validate(givenText)
+                () -> new CarName(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR]")
+                .hasMessageContaining(ERROR_MESSAGE)
                 .hasMessage(CARNAME_INVALID_ERROR_MESSAGE);
     }
 }

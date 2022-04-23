@@ -9,8 +9,14 @@ public class CarName {
     private static final String CARNAME_INVALID_ERROR_MESSAGE = "[ERROR] 자동차 이름은 문자로만 이루어져야 한다.";
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
+    private String name;
 
-    public void validate(String text) {
+    CarName(String name) {
+        this.validate(name);
+        this.name = name;
+    }
+
+    private void validate(String text) {
         validateEmpty(text);
         text = text.trim();
         validateLength(text);
