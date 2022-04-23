@@ -2,6 +2,7 @@ package racingcar.util;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,7 +47,6 @@ public class ValidationUtilsTest {
     void validate_length(String givenText) {
         int minLength = 1;
         int maxLength = 3;
-
         boolean result = ValidationUtils.checkLength(minLength, maxLength, givenText);
         assertThat(result).isEqualTo(true);
     }
@@ -60,5 +60,13 @@ public class ValidationUtilsTest {
 
         boolean result = ValidationUtils.checkLength(minLength, maxLength, givenText);
         assertThat(result).isEqualTo(false);
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    @DisplayName("주어진 문자열이 empty이면 true를 리턴한다.")
+    void validate_empty(String givenText) {
+        boolean result = ValidationUtils.isEmpty(givenText);
+        assertThat(result).isEqualTo(true);
     }
 }

@@ -25,4 +25,11 @@ public class ValidationUtils {
         }
         return false;
     }
+
+    public static boolean isEmpty(String givenText) {
+        if (givenText == null || givenText.trim().length() == 0){
+            return true;
+        }
+        return false;
+    }
 }
