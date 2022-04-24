@@ -1,6 +1,6 @@
 # 요구사항 정리
 - [x] 자동차 이름은 사용자 입력을 쉼표(,)를 구분하여 얻을 수 있다.
-- [ ] 경주 시도 횟수는 사용자가 입력한다.
+- [x] 경주 시도 횟수는 사용자가 입력한다.
 - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다.
   - [x] Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같은 명확한 유형을 처리한다.
   - [x] 사용자가 자동차 이름을 입력할 때 자동차 이름의 길이가 5자를 넘어서면 에러를 던진다.
