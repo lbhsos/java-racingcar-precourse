@@ -2,6 +2,8 @@ package racingcar.model;
 
 import racingcar.util.ValidationUtils;
 
+import java.util.Objects;
+
 public class CarName {
     private static final String CARNAME_EMPTY_ERROR_MESSAGE = "자동차 이름은 필수값입니다. ";
     private static final String CARNAME_LENGTH_ERROR_MESSAGE = "자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
@@ -18,6 +20,14 @@ public class CarName {
 
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CarName carName = (CarName) o;
+        return Objects.equals(name, carName.getName());
     }
 
     private void validate(String text) {

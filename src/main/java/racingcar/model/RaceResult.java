@@ -4,20 +4,20 @@ import java.util.Objects;
 
 public class RaceResult implements Comparable<RaceResult>{
     private static final String DISTANCE_CHARACTER = "-";
-    private String carName;
-    private int distance;
+    private CarName carName;
+    private Distance distance;
 
     public RaceResult(String name, int distance) {
-        this.carName = name;
-        this.distance = distance;
+        this.carName = new CarName(name);
+        this.distance = new Distance(distance);
     }
 
     public String getCarName() {
-        return carName;
+        return carName.getName();
     }
 
     public int getDistance() {
-        return distance;
+        return distance.getDistance();
     }
 
     @Override
@@ -41,14 +41,14 @@ public class RaceResult implements Comparable<RaceResult>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RaceResult that = (RaceResult) o;
-        return distance == that.distance && Objects.equals(carName, that.carName);
+        return Objects.equals(carName, that.carName) && Objects.equals(distance, that.distance);
     }
 
     private String printRaceResult() {
         StringBuilder sb = new StringBuilder();
-        sb.append(carName);
+        sb.append(carName.getName());
         sb.append(" : ");
-        makeDistanceView(sb, distance);
+        makeDistanceView(sb, distance.getDistance());
         return sb.toString();
     }
 

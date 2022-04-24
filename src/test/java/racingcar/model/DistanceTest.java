@@ -13,4 +13,11 @@ public class DistanceTest {
         distance.increase();
         assertThat(distance.getDistance()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("이동 거리를 리턴한다.")
+    void get() {
+        Distance distance = new Distance();
+        assertThat(distance.getDistance()).isEqualTo(0);
+    }
 }
