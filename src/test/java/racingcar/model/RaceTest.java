@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,7 +9,6 @@ import java.io.ByteArrayInputStream;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RaceTest {
-
     private static final String ERROR_MESSAGE = "[ERROR]";
 
     @ParameterizedTest

@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import racingcar.Race;
-import racingcar.Winners;
+import racingcar.model.Race;
+import racingcar.model.Winners;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 

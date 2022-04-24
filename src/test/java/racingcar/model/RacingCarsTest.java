@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 public class RacingCarsTest {
-
     private static final String CAR_DUP_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없습니다.";
     private static final String ERROR_MESSAGE = "[ERROR]";
 

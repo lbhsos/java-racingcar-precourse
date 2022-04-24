@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.List;
 
 public class Winners {
-    List<String> winners;
+    private List<String> winners;
 
     public Winners(RaceResults raceResults) {
         winners = raceResults.getWinners();

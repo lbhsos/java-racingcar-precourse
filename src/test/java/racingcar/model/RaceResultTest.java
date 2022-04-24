@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RaceResultTest {
-
     @Test
     @DisplayName("레이스 경주 결과 비교시 거리가 동일하면 동일하다고 판별")
     void compare_same_distance() {

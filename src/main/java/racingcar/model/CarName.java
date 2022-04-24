@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.model;
 
 import racingcar.util.ValidationUtils;
 
 public class CarName {
-
     private static final String CARNAME_EMPTY_ERROR_MESSAGE = "[ERROR] 자동차 이름은 필수값입니다. ";
     private static final String CARNAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
     private static final String CARNAME_INVALID_ERROR_MESSAGE = "[ERROR] 자동차 이름은 문자로만 이루어져야 한다.";
@@ -15,6 +14,10 @@ public class CarName {
     CarName(String name) {
         this.validate(name);
         this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     private void validate(String text) {
@@ -43,9 +46,5 @@ public class CarName {
         if (blank) {
             throw new IllegalArgumentException(CARNAME_EMPTY_ERROR_MESSAGE);
         }
-    }
-
-    public String getName() {
-        return this.name;
     }
 }

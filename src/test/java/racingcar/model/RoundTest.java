@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RoundTest {
-
     private static final String ERROR_MESSAGE = "[ERROR]";
     private static final String ROUND_GO_ERROR_MESSAGE = "[ERROR] 남은 시도 횟수는 0입니다.";
     private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다.";

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +8,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
-
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,7,8,9})
     @DisplayName("자동차는 한 횟수에서 random값이 4이상이면 이동 거리가 1 증가한다.")

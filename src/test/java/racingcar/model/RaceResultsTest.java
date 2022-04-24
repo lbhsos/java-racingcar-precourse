@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RaceResultsTest {
-
     @Test
     @DisplayName("공동 우승일 경우 공동 우승자 이름 모두 리턴")
     void contain_all_cowinners() {

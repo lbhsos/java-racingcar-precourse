@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarNameTest {
-
     private static final String CARNAME_EMPTY_ERROR_MESSAGE = "[ERROR] 자동차 이름은 필수값입니다. ";
     private static final String CARNAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
     private static final String CARNAME_INVALID_ERROR_MESSAGE = "[ERROR] 자동차 이름은 문자로만 이루어져야 한다.";

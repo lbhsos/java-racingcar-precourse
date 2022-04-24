@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,7 +7,7 @@ import java.util.List;
 public class RaceResults {
     private static final int FIRST = 0;
     private static final int SAME = 0;
-    List<RaceResult> raceResults;
+    private List<RaceResult> raceResults;
 
     public RaceResults(List<RaceResult> raceResults) {
         this.raceResults = raceResults;

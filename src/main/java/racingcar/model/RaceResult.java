@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 public class RaceResult implements Comparable<RaceResult>{
     private static final String DISTANCE_CHARACTER = "-";

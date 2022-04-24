@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-
     private static final int MIN_NUM = 0;
     private static final int MAX_NUM = 9;
     private static final MovingRule movingRule = new MovingRule();
@@ -18,7 +17,7 @@ public class Car {
 
     public void race() {
         int randomNum = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
-        MovingStatus movingStatus = movingRule.move(randomNum);
+        MovingStatus movingStatus = movingRule.behave(randomNum);
         if (movingStatus.isGoing()) {
             this.move();
         }
