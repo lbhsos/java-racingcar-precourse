@@ -26,11 +26,11 @@ public class RaceResult implements Comparable<RaceResult>{
 
     @Override
     public int compareTo(RaceResult o) {
-        if(this.getDistance() > o.getDistance()) {
+        if (this.getDistance() > o.getDistance()) {
             return 1;
         }
-        if (this.getDistance() == o.getDistance() && this.getCarName().compareTo(o.getCarName()) < 1) {
-            return 1;
+        if (this.getDistance() == o.getDistance()) {
+            return 0;
         }
         return -1;
     }
