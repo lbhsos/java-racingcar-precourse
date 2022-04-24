@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -21,6 +22,7 @@ public class CarTest {
             }, randomValue
         );
     }
+
     @ParameterizedTest
     @ValueSource(ints = {0,1,2,3})
     @DisplayName("자동차는 한 횟수에서 random값이 3 이하이면 이동 거리 변화가 없다.")
@@ -33,5 +35,19 @@ public class CarTest {
                 assertThat(car.getDistance()).isEqualTo(0);
             }, randomValue
         );
+    }
+
+    @Test
+    @DisplayName("자동차가 지니고 있는 거리 값을 리턴한다.")
+    void get_distance() {
+        Car car = new Car("abc");
+        assertThat(car.getDistance()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("자동차가 지니고 있는 이름 값을 리턴한다.")
+    void get_name() {
+        Car car = new Car("abc");
+        assertThat(car.getName()).isEqualTo("abc");
     }
 }

@@ -80,11 +80,10 @@ public class RaceTest {
     @Test
     @DisplayName("한 회차에 대한 결과를 리턴한다.")
     void run(){
-        // given
         RaceResult car1 = new RaceResult("aaa", 1);
         RaceResult car2 = new RaceResult("bbb", 1);
         RaceResult car3 = new RaceResult("ccc", 0);
-        List<RaceResult> raceResults = Arrays.asList(car1, car2, car3);
+        List<RaceResult> givenResults = Arrays.asList(car1, car2, car3);
         race.joinRacing("aaa, bbb, ccc");
         race.initRound("1");
 
@@ -95,7 +94,7 @@ public class RaceTest {
                     () -> assertThat(results).isNotNull(),
                     () -> assertThat(results)
                         .extracting("raceResults")
-                        .isEqualTo(raceResults)
+                        .isEqualTo(givenResults)
                 );
             },
             MOVING_FORWARD, MOVING_FORWARD, STOP

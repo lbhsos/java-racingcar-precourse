@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RaceResultsTest {
     @Test
-    @DisplayName("공동 우승일 경우 공동 우승자 이름 모두 리턴")
+    @DisplayName("공동 우승일 경우 공동 우승자 이름 모두 리턴한다.")
     void contain_all_cowinners() {
         RaceResult raceResult = new RaceResult("aaa", 1);
         RaceResult raceResult1 = new RaceResult("bbb", 2);
@@ -21,7 +21,7 @@ public class RaceResultsTest {
     }
 
     @Test
-    @DisplayName("공동 우승이 아닐 경우 우승자 이름 하나 리턴")
+    @DisplayName("공동 우승이 아닐 경우 우승자 이름 하나 리턴한다.")
     void contain_a_winner() {
         RaceResult raceResult = new RaceResult("aaa", 1);
         RaceResult raceResult1 = new RaceResult("bbb", 2);
