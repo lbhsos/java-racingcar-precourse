@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class RaceResult implements Comparable<RaceResult>{
     private static final String DISTANCE_CHARACTER = "-";
     private String carName;
@@ -32,6 +34,14 @@ public class RaceResult implements Comparable<RaceResult>{
             return 0;
         }
         return -1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RaceResult that = (RaceResult) o;
+        return distance == that.distance && Objects.equals(carName, that.carName);
     }
 
     private String printRaceResult() {
