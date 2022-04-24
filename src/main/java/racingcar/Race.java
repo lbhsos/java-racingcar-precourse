@@ -13,12 +13,12 @@ public class Race {
     private static final String CARNAME_INPUT_ERROR_MESSAGE = "[ERROR] 자동차 입력이 잘못되었습니다.";
     private static final String ROUND_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수 입력이 잘못되었습니다.";
 
-    private List<Car> racingCars;
+    private RacingCars racingCars;
     private Round round;
-    private RaceResult raceResult;
+    private RaceResults raceResults;
 
     Race() {
-        raceResult = new RaceResult();
+
     }
 
     public void open() {
@@ -29,8 +29,7 @@ public class Race {
         }
     }
 
-    public void readRacingCars() {
-        racingCars = new ArrayList<>();
+    private void readRacingCars() {
         String carsInput;
         try{
             carsInput = readLine();
@@ -40,7 +39,7 @@ public class Race {
         joinRacing(carsInput);
     }
 
-    public void readRound() {
+    private void readRound() {
         String roundInput;
         try{
             roundInput = readLine();
@@ -50,19 +49,19 @@ public class Race {
         this.round = new Round(roundInput);
     }
 
-    public void start() {
+    private void start() {
         round.go();
-        for (Car racingCar : racingCars) {
-            racingCar.race();
-            raceResult.print(racingCar.getName(), racingCar.getDistance());
-        }
+        this.raceResults = new RaceResults(racingCars.race());
+        System.out.println(raceResults);
     }
 
     private void joinRacing(String carsInput) {
+        List<Car> cars = new ArrayList<>();
         List<String> carNames = StringUtils.splitByDelimiter(carsInput, ",");
         for (String carName : carNames) {
             Car car = new Car(carName);
-            racingCars.add(car);
+            cars.add(car);
         }
+        racingCars = new RacingCars(cars);
     }
 }

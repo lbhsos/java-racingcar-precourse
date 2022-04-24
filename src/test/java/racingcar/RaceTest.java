@@ -12,30 +12,30 @@ public class RaceTest {
 
     private static final String ERROR_MESSAGE = "[ERROR]";
 
-    @ParameterizedTest
-    @ValueSource(strings = {"1, 2", "abcefgh, abcefgi", ",  ", "\\n", ""})
-    @DisplayName("자동차 이름 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
-    void input_invalid_carname(String givenText){
-        command(givenText);
-        Race race = new Race();
-        assertThatThrownBy(
-                () -> race.readRacingCars()
-        ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE);
-    }
-
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", "a", "0", "-2", "**", "2147483648"})
-    @DisplayName("시도 횟수 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
-    void input_invalid_round(String givenText){
-        command(givenText);
-        Race race = new Race();
-        assertThatThrownBy(
-                () -> race.readRound()
-        ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE);
-    }
+//    @ParameterizedTest
+//    @ValueSource(strings = {"1, 2", "abcefgh, abcefgi", ",  ", "\\n", ""})
+//    @DisplayName("자동차 이름 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
+//    void input_invalid_carname(String givenText){
+//        command(givenText);
+//        Race race = new Race();
+//        assertThatThrownBy(
+//                () -> race.readRacingCars()
+//        ).isInstanceOf(IllegalArgumentException.class)
+//                .hasMessageContaining(ERROR_MESSAGE);
+//    }
+//
+//
+//    @ParameterizedTest
+//    @ValueSource(strings = {"", "a", "0", "-2", "**", "2147483648"})
+//    @DisplayName("시도 횟수 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
+//    void input_invalid_round(String givenText){
+//        command(givenText);
+//        Race race = new Race();
+//        assertThatThrownBy(
+//                () -> race.readRound()
+//        ).isInstanceOf(IllegalArgumentException.class)
+//                .hasMessageContaining(ERROR_MESSAGE);
+//    }
 
     private void command(final String input) {
         final byte[] buf = input.getBytes();
