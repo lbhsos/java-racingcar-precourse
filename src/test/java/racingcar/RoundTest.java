@@ -6,12 +6,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RoundTest {
 
     private static final String ERROR_MESSAGE = "[ERROR]";
-    private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다. ";
+    private static final String ROUND_GO_ERROR_MESSAGE = "[ERROR] 남은 시도 횟수는 0입니다.";
+    private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다.";
     private static final String ROUND_RANGE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1-2147483647 사이 숫자만 가능합니다.";
 
     @Test
@@ -56,5 +58,31 @@ public class RoundTest {
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR_MESSAGE)
                 .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("남은 횟수가 0이면 true를 리턴한다.")
+    void over() {
+        // given
+        Round round = new Round("1");
+        // when
+        round.go();
+        // then
+        assertThat(round.isOver()).isEqualTo(true);
+    }
+
+    @Test
+    @DisplayName("남은 횟수가 0 이하일 경우 에러를 던진다.")
+    void throw_error_with_no_round() {
+        // given
+        Round round = new Round("1");
+        // when
+        round.go();
+        // then
+        assertThatThrownBy(
+                () -> round.go()
+        ).isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(ERROR_MESSAGE)
+                .hasMessage(ROUND_GO_ERROR_MESSAGE);
     }
 }

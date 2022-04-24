@@ -4,7 +4,8 @@ import racingcar.util.ValidationUtils;
 
 public class Round {
 
-    private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다. ";
+    private static final String ROUND_GO_ERROR_MESSAGE = "[ERROR] 남은 시도 횟수는 0입니다.";
+    private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다.";
     private static final String ROUND_RANGE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1-2147483647 사이 숫자만 가능합니다.";
 
     private int round;
@@ -18,6 +19,20 @@ public class Round {
             throw new IllegalArgumentException(ROUND_RANGE_ERROR_MESSAGE);
         }
         this.round = round;
+    }
+
+    public boolean isOver() {
+        if (round <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void go() {
+        if (round <= 0) {
+            throw new IllegalStateException(ROUND_GO_ERROR_MESSAGE);
+        }
+        this.round -= 1;
     }
 
     private void validateEmpty(String numAsText) {
