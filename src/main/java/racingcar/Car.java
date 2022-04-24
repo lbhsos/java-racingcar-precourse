@@ -31,4 +31,8 @@ public class Car {
     public int getDistance() {
         return this.distance.getDistance();
     }
+
+    public String getName() {
+        return this.carName.getName();
+    }
 }

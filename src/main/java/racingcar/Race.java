@@ -15,9 +15,18 @@ public class Race {
 
     private List<Car> racingCars;
     private Round round;
+    private RaceResult raceResult;
 
-    public void start() {
+    Race() {
+        raceResult = new RaceResult();
+    }
 
+    public void open() {
+        readRacingCars();
+        readRound();
+        while (!round.isOver()){
+            start();
+        }
     }
 
     public void readRacingCars() {
@@ -39,6 +48,14 @@ public class Race {
             throw new IllegalArgumentException(ROUND_INPUT_ERROR_MESSAGE);
         }
         this.round = new Round(roundInput);
+    }
+
+    public void start() {
+        round.go();
+        for (Car racingCar : racingCars) {
+            racingCar.race();
+            raceResult.print(racingCar.getName(), racingCar.getDistance());
+        }
     }
 
     private void joinRacing(String carsInput) {
