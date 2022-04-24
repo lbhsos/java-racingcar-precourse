@@ -1,30 +1,41 @@
 package racingcar.controller;
 
 import racingcar.model.Race;
+import racingcar.model.RaceResults;
 import racingcar.model.Winners;
+import racingcar.view.Input;
+import racingcar.view.Output;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RaceController {
-    private static final String CARNAME_INPUT_REQUIRED_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String ROUND_INPUT_REQUIRED_MESSAGE = "시도할 횟수는 몇회인가요?";
-
+    private Input input;
+    private Output output;
     private Race race;
+
+    public RaceController(Input input, Output output) {
+        this.input = input;
+        this.output = output;
+    }
 
     public void raceStart() {
         race = new Race();
         handleCarNamesInput();
         handleRoundInput();
-        race.open();
-        Winners end = race.end();
-        System.out.println(end);
+        RaceResults roundResults = null;
+        while (race.open()){
+            roundResults = race.run();
+            output.printResults(roundResults);
+        }
+        Winners winners = race.end(roundResults);
+        output.printWinners(winners);
     }
 
     private void handleCarNamesInput() {
         try {
             readRacingCars();
         } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
+            output.printErrorMessage(ex.getMessage());
             readRacingCars();
         }
     }
@@ -39,15 +50,14 @@ public class RaceController {
     }
 
     private void readRacingCars() {
-        System.out.println(CARNAME_INPUT_REQUIRED_MESSAGE);
+        input.requireCarNames();
         String carsInput = readLine();
         race.joinRacing(carsInput);
     }
 
     private void readRound() {
-        System.out.println(ROUND_INPUT_REQUIRED_MESSAGE);
+        input.requireRound();
         String roundInput = readLine();
         race.initRound(roundInput);
     }
-
 }

@@ -15,11 +15,10 @@ public class CarTest {
         //given
         Car car = new Car("abc");
         assertRandomNumberInRangeTest(
-                () -> {
-                    car.race();
-                    assertThat(car.getDistance()).isEqualTo(1);
-                },
-                randomValue
+            () -> {
+                car.race();
+                assertThat(car.getDistance()).isEqualTo(1);
+            }, randomValue
         );
     }
     @ParameterizedTest
@@ -29,11 +28,10 @@ public class CarTest {
         //given
         Car car = new Car("abc");
         assertRandomNumberInRangeTest(
-                () -> {
-                    car.race();
-                    assertThat(car.getDistance()).isEqualTo(0);
-                },
-                randomValue
+            () -> {
+                car.race();
+                assertThat(car.getDistance()).isEqualTo(0);
+            }, randomValue
         );
     }
 }

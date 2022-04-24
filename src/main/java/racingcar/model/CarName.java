@@ -3,9 +3,9 @@ package racingcar.model;
 import racingcar.util.ValidationUtils;
 
 public class CarName {
-    private static final String CARNAME_EMPTY_ERROR_MESSAGE = "[ERROR] 자동차 이름은 필수값입니다. ";
-    private static final String CARNAME_LENGTH_ERROR_MESSAGE = "[ERROR] 자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
-    private static final String CARNAME_INVALID_ERROR_MESSAGE = "[ERROR] 자동차 이름은 문자로만 이루어져야 한다.";
+    private static final String CARNAME_EMPTY_ERROR_MESSAGE = "자동차 이름은 필수값입니다. ";
+    private static final String CARNAME_LENGTH_ERROR_MESSAGE = "자동차 이름의 길이는 공백 제외 1이상 5이하여야 한다. ";
+    private static final String CARNAME_INVALID_ERROR_MESSAGE = "자동차 이름은 문자로만 이루어져야 한다.";
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
 

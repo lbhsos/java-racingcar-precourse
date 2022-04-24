@@ -8,18 +8,6 @@ import java.util.List;
 public class Race {
     private RacingCars racingCars;
     private Round round;
-    private RaceResults raceResults;
-    private Winners winners;
-
-    public void open() {
-        while (!round.isOver()){
-            play();
-        }
-    }
-
-    public Winners end(){
-        return winners = new Winners(raceResults);
-    }
 
     public void joinRacing(String carsInput) {
         List<Car> cars = new ArrayList<>();
@@ -35,9 +23,16 @@ public class Race {
         this.round = new Round(roundInput);
     }
 
-    private void play() {
+    public boolean open() {
+        return !round.isOver();
+    }
+
+    public Winners end(RaceResults raceResults){
+        return new Winners(raceResults);
+    }
+
+    public RaceResults run() {
         round.go();
-        this.raceResults = new RaceResults(racingCars.race());
-        System.out.println(raceResults);
+        return new RaceResults(racingCars.race());
     }
 }

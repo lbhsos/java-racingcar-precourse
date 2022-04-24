@@ -10,20 +10,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RoundTest {
-    private static final String ERROR_MESSAGE = "[ERROR]";
-    private static final String ROUND_GO_ERROR_MESSAGE = "[ERROR] 남은 시도 횟수는 0입니다.";
-    private static final String ROUND_EMPTY_ERROR_MESSAGE = "[ERROR] 시도 횟수는 필수값입니다.";
-    private static final String ROUND_RANGE_ERROR_MESSAGE = "[ERROR] 시도 횟수는 1-2147483647 사이 숫자만 가능합니다.";
+    private static final String ROUND_GO_ERROR_MESSAGE = "남은 시도 횟수는 0입니다.";
+    private static final String ROUND_EMPTY_ERROR_MESSAGE = "시도 횟수는 필수값입니다.";
+    private static final String ROUND_RANGE_ERROR_MESSAGE = "시도 횟수는 1-2147483647 사이 숫자만 가능합니다.";
 
     @Test
     @DisplayName("시도 횟수가 숫자가 아닐 경우 에러를 던진다.")
     void throw_error_with_not_numeric() {
         String givenText = "a";
         assertThatThrownBy(
-                () -> new Round(givenText)
+            () -> new Round(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-                .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
+        .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
     }
 
     @ParameterizedTest
@@ -31,10 +29,9 @@ public class RoundTest {
     @DisplayName("시도 횟수가 입력되지 않을 경우 에러를 던진다.")
     void throw_error_with_empty(String givenText) {
         assertThatThrownBy(
-                () -> new Round(givenText)
+            () -> new Round(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-                .hasMessage(ROUND_EMPTY_ERROR_MESSAGE);
+        .hasMessage(ROUND_EMPTY_ERROR_MESSAGE);
     }
 
     @ParameterizedTest
@@ -42,10 +39,9 @@ public class RoundTest {
     @DisplayName("시도 횟수가 1보다 작을 경우 에러를 던진다.")
     void throw_error_with_negative(String givenText) {
         assertThatThrownBy(
-                () -> new Round(givenText)
+            () -> new Round(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-                .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
+        .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
     }
 
     @ParameterizedTest
@@ -53,10 +49,9 @@ public class RoundTest {
     @DisplayName("시도 횟수가 int 범위를 벗어날 경우 에러를 던진다.")
     void throw_error_with_max(String givenText) {
         assertThatThrownBy(
-                () -> new Round(givenText)
+            () -> new Round(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-                .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
+        .hasMessage(ROUND_RANGE_ERROR_MESSAGE);
     }
 
     @Test
@@ -79,9 +74,8 @@ public class RoundTest {
         round.go();
         // then
         assertThatThrownBy(
-                () -> round.go()
+            () -> round.go()
         ).isInstanceOf(IllegalStateException.class)
-                .hasMessageContaining(ERROR_MESSAGE)
-                .hasMessage(ROUND_GO_ERROR_MESSAGE);
+        .hasMessage(ROUND_GO_ERROR_MESSAGE);
     }
 }

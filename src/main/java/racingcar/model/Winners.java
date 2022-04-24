@@ -12,7 +12,6 @@ public class Winners {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자:");
         for (int i=0; i< winners.size(); i++) {
             sb.append(" ");
             sb.append(winners.get(i));

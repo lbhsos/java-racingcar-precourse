@@ -57,7 +57,6 @@ public class ValidationUtilsTest {
     void validate_invalid_length_text(String givenText) {
         int minLength = 1;
         int maxLength = 3;
-
         boolean result = ValidationUtils.checkLength(minLength, maxLength, givenText);
         assertThat(result).isEqualTo(false);
     }
