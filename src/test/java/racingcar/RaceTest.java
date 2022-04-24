@@ -14,12 +14,11 @@ public class RaceTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"1, 2", "abcefgh, abcefgi", ",  ", "\\n", ""})
-    @DisplayName("자동차 이름 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
+    @DisplayName("자동차 이름 값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
     void input_invalid_carname(String givenText){
-        command(givenText);
         Race race = new Race();
         assertThatThrownBy(
-                () -> race.open()
+                () -> race.joinRacing(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR_MESSAGE);
     }
@@ -27,13 +26,11 @@ public class RaceTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", "a", "0", "-2", "**", "2147483648"})
-    @DisplayName("시도 횟수 입력값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
+    @DisplayName("시도 횟수 값이 잘못된 경우 IllegalArgumentException을 발생시킨다.")
     void input_invalid_round(String givenText){
-        command("aaa, bbb");
-        command(givenText);
         Race race = new Race();
         assertThatThrownBy(
-                () -> race.open()
+                () -> race.initRound(givenText)
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR_MESSAGE);
     }
