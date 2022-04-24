@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidationUtils {
-    private static final Pattern alphaPattern = Pattern.compile("[a-zA-Z]+");
+    private static final Pattern alphaPattern = Pattern.compile("[ㄱ-ㅎ가-힣a-zA-Z|]+");
     private static final Pattern numericPattern = Pattern.compile("^[-]?[0-9]+");
 
     public static boolean isNumeric(String name) {

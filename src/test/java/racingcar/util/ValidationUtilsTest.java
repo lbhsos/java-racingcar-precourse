@@ -26,7 +26,7 @@ public class ValidationUtilsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"aaa", "bbb", "ccc"})
+    @ValueSource(strings = {"aaa", "bbb", "ccc", "이보현", "이보현aa"})
     @DisplayName("문자만 있는 문자열로 문자인지 검증하면 true 리턴한다.")
     void validate_alpha_text(String givenText) {
         boolean result = ValidationUtils.isAlpha(givenText);
