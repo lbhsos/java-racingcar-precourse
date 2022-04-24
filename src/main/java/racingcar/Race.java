@@ -9,6 +9,8 @@ import java.util.NoSuchElementException;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Race {
+    private static final String CARNAME_INPUT_REQUIRED_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)문";
+    private static final String ROUND_INPUT_REQUIRED_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String CARNAME_INPUT_ERROR_MESSAGE = "[ERROR] 자동차 입력이 잘못되었습니다.";
     private static final String ROUND_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수 입력이 잘못되었습니다.";
 
@@ -32,6 +34,7 @@ public class Race {
     }
 
     private void readRacingCars() {
+        System.out.println(CARNAME_INPUT_REQUIRED_MESSAGE);
         String carsInput;
         try{
             carsInput = readLine();
@@ -42,6 +45,7 @@ public class Race {
     }
 
     private void readRound() {
+        System.out.println(ROUND_INPUT_REQUIRED_MESSAGE);
         String roundInput;
         try{
             roundInput = readLine();
