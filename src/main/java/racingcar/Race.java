@@ -4,7 +4,6 @@ import racingcar.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -24,8 +23,8 @@ public class Race {
     }
 
     public void open() {
-        readRacingCars();
-        readRound();
+        handleCarNamesInput();
+        handleRoundInput();
         while (!round.isOver()){
             start();
         }
@@ -33,25 +32,34 @@ public class Race {
         System.out.println(winners);
     }
 
+    private void handleCarNamesInput() {
+        try {
+            readRacingCars();
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+            readRacingCars();
+        }
+    }
+
+    private void handleRoundInput() {
+        try {
+            readRound();
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+            readRound();
+        }
+    }
+
+
     private void readRacingCars() {
         System.out.println(CARNAME_INPUT_REQUIRED_MESSAGE);
-        String carsInput;
-        try{
-            carsInput = readLine();
-        } catch (NoSuchElementException ex) {
-            throw new IllegalArgumentException(CARNAME_INPUT_ERROR_MESSAGE);
-        }
+        String carsInput = readLine();
         joinRacing(carsInput);
     }
 
     private void readRound() {
         System.out.println(ROUND_INPUT_REQUIRED_MESSAGE);
-        String roundInput;
-        try{
-            roundInput = readLine();
-        } catch (NoSuchElementException ex) {
-            throw new IllegalArgumentException(ROUND_INPUT_ERROR_MESSAGE);
-        }
+        String roundInput = readLine();
         this.round = new Round(roundInput);
     }
 
