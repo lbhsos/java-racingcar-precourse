@@ -1,7 +1,6 @@
 package racingcar;
 
 public class RaceResult implements Comparable<RaceResult>{
-
     private static final String DISTANCE_CHARACTER = "-";
     private String carName;
     private int distance;
@@ -38,7 +37,7 @@ public class RaceResult implements Comparable<RaceResult>{
     private String printRaceResult() {
         StringBuilder sb = new StringBuilder();
         sb.append(carName);
-        sb.append(": ");
+        sb.append(" : ");
         makeDistanceView(sb, distance);
         return sb.toString();
     }
@@ -48,5 +47,4 @@ public class RaceResult implements Comparable<RaceResult>{
             sb.append(DISTANCE_CHARACTER);
         }
     }
-
 }

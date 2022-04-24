@@ -9,13 +9,13 @@ import java.util.NoSuchElementException;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Race {
-
     private static final String CARNAME_INPUT_ERROR_MESSAGE = "[ERROR] 자동차 입력이 잘못되었습니다.";
     private static final String ROUND_INPUT_ERROR_MESSAGE = "[ERROR] 시도 횟수 입력이 잘못되었습니다.";
 
     private RacingCars racingCars;
     private Round round;
     private RaceResults raceResults;
+    private Winners winners;
 
     Race() {
 
@@ -27,6 +27,8 @@ public class Race {
         while (!round.isOver()){
             start();
         }
+        winners = new Winners(raceResults);
+        System.out.println(winners);
     }
 
     private void readRacingCars() {
