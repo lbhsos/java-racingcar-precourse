@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValidationUtils {
 
     private static final Pattern alphaPattern = Pattern.compile("[a-zA-Z]+");
-    private static final Pattern numericPattern = Pattern.compile("[0-9]+");
+    private static final Pattern numericPattern = Pattern.compile("^[-]?[0-9]+");
 
     public static boolean isNumeric(String name) {
         Matcher matcher = numericPattern.matcher(name);
@@ -27,9 +27,18 @@ public class ValidationUtils {
     }
 
     public static boolean isEmpty(String givenText) {
-        if (givenText == null || givenText.trim().length() == 0){
+        if (givenText == null || givenText.trim().length() == 0) {
             return true;
         }
         return false;
+    }
+
+    public static boolean isInRange(String numAsText) {
+        try {
+            Integer.parseInt(numAsText);
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+        return true;
     }
 }
