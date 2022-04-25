@@ -29,7 +29,7 @@ public class RacingCars {
         for (Car car : cars) {
             noDuplicateCars.add(car.getName());
         }
-        if(noDuplicateCars.size() != cars.size()) {
+        if (noDuplicateCars.size() != cars.size()) {
             throw new IllegalArgumentException(CAR_DUP_ERROR_MESSAGE);
         }
     }

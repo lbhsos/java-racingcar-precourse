@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
+    private static final String DELIMITER = ",";
+
     private RacingCars racingCars;
     private Round round;
 
     public void joinRacing(String carsInput) {
         List<Car> cars = new ArrayList<>();
-        List<String> carNames = StringUtils.splitByDelimiter(carsInput, ",");
+        List<String> carNames = StringUtils.splitByDelimiter(carsInput, DELIMITER);
         for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);

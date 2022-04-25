@@ -23,7 +23,7 @@ public class RaceController {
         handleCarNamesInput();
         handleRoundInput();
         RaceResults roundResults = null;
-        while (race.open()){
+        while (race.open()) {
             roundResults = race.run();
             output.printResults(roundResults);
         }

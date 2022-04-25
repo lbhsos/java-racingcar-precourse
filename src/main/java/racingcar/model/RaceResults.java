@@ -7,6 +7,7 @@ import java.util.List;
 public class RaceResults {
     private static final int FIRST = 0;
     private static final int SAME = 0;
+    private static final String LINE_SEPARATOR = "line.separator";
     private List<RaceResult> raceResults;
 
     public RaceResults(List<RaceResult> raceResults) {
@@ -28,7 +29,7 @@ public class RaceResults {
         for (RaceResult raceResult: raceResults) {
             String s = raceResult.toString();
             sb.append(s);
-            sb.append(System.getProperty("line.separator"));
+            sb.append(System.getProperty(LINE_SEPARATOR));
         }
         return sb.toString();
     }

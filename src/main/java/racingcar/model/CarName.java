@@ -13,7 +13,7 @@ public class CarName {
 
     private String name;
 
-    CarName(String name) {
+    public CarName(String name) {
         this.validate(name);
         this.name = name;
     }

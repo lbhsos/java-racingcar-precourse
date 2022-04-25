@@ -15,10 +15,14 @@ public class Winners {
         for (int i=0; i< winners.size(); i++) {
             sb.append(" ");
             sb.append(winners.get(i));
-            if (i != winners.size() -1){
-                sb.append(",");
-            }
+            appendComma(sb, i);
         }
         return sb.toString();
+    }
+
+    private void appendComma(StringBuilder sb, int i) {
+        if (i != winners.size() -1){
+            sb.append(",");
+        }
     }
 }

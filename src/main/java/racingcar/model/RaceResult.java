@@ -38,10 +38,14 @@ public class RaceResult implements Comparable<RaceResult>{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         RaceResult that = (RaceResult) o;
-        return Objects.equals(carName, that.carName) && Objects.equals(distance, that.distance);
+        return Objects.equals(this.getCarName(), that.getCarName()) && Objects.equals(this.getDistance(), that.getDistance());
     }
 
     private String printRaceResult() {
