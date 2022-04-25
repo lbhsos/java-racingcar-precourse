@@ -17,7 +17,7 @@ public class RaceResultsTest {
         RaceResult raceResult2 = new RaceResult("ccc", 2);
         RaceResults raceResults = new RaceResults(Arrays.asList(raceResult1, raceResult, raceResult2));
         List<String> winners = raceResults.getWinners();
-        assertThat(winners).containsExactly("bbb","ccc");
+        assertThat(winners).contains("bbb","ccc");
     }
 
     @Test
@@ -28,6 +28,6 @@ public class RaceResultsTest {
         RaceResult raceResult2 = new RaceResult("ccc", 3);
         RaceResults raceResults = new RaceResults(Arrays.asList(raceResult1, raceResult, raceResult2));
         List<String> winners = raceResults.getWinners();
-        assertThat(winners).containsExactly("ccc");
+        assertThat(winners).containsOnly("ccc");
     }
 }

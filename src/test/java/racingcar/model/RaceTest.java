@@ -73,7 +73,8 @@ public class RaceTest {
         assertAll(
             () -> assertThat(end).isNotNull(),
             () -> assertThat(end).extracting("winners")
-                .isEqualTo(Arrays.asList("aaa","bbb"))
+                .asList()
+                .contains("aaa","bbb")
         );
     }
 

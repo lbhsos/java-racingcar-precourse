@@ -31,15 +31,13 @@ public class RacingCarsTest {
         RacingCars racingCars = new RacingCars(Arrays.asList(new Car("aaa"), new Car("bbb")));
         RaceResult car1 = new RaceResult("aaa", 1);
         RaceResult car2 = new RaceResult("bbb", 1);
-        List<RaceResult> givenResults = Arrays.asList(car1, car2);
 
         assertRandomNumberInRangeTest(
             () -> {
                 List<RaceResult> results = racingCars.race();
                 assertAll(
                     () -> assertThat(results).isNotNull(),
-                    () -> assertThat(results)
-                        .isEqualTo(givenResults)
+                    () -> assertThat(results).contains(car1, car2)
                 );
             },
             MOVING_FORWARD, MOVING_FORWARD
